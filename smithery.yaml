@@ -1,0 +1,25 @@
+version: 1
+name: dora
+displayName: Dora
+description: Multi-model AI image and video generator. One OAuth-secured connector exposes 14 models (Nano Banana 2/Pro, SeeDance 1.5/2, Veo 3, Kling 2.6, Grok Imagine, GPT-4o Image, z-image) with cheap-first defaults and async job polling.
+homepage: https://doravideo.com
+documentation: https://github.com/Saga-Labs/dora-mcp
+deployment:
+  remote:
+    url: https://doravideo.com/mcp
+    transport: streamable-http
+    auth:
+      type: oauth
+      pkce: true
+      dynamicClientRegistration: true
+tags:
+  - image-generation
+  - video-generation
+  - ai
+  - oauth
+  - multimodal
+  - kie
+categories:
+  - multimedia
+  - art-and-culture
+license: MIT

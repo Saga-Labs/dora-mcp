@@ -77,7 +77,7 @@ Live in production since May 2026. Same backend serves the Dora iOS app (paid pr
 
 ## Contact
 
-- Email: gonfer.marta@gmail.com
+- Email: sagalabs@proton.me
 - Issues: open an issue on this repo
 
 ## License
