@@ -8,6 +8,7 @@ A single OAuth-secured endpoint gives Claude access to **14 image and video mode
 - **Landing page:** [doravideo.com/claude](https://doravideo.com/claude)
 - **iOS app:** [Dora on the App Store](https://apps.apple.com/app/id6747720520)
 - **Web:** [doravideo.com](https://doravideo.com)
+- **Smithery:** [smithery.ai/server/saga-labs/dora-mcp](https://smithery.ai/server/saga-labs/dora-mcp)
 
 ## Models
 
