@@ -1,9 +1,9 @@
 version: 1
 name: dora
 displayName: Dora
-description: Multi-model AI image and video generator. One OAuth-secured connector exposes 14 models (Nano Banana 2/Pro, SeeDance 1.5/2, Veo 3, Kling 2.6, Grok Imagine, GPT-4o Image, z-image) with cheap-first defaults and async job polling.
+description: AI video and image generation MCP server for ChatGPT, Claude, Cursor and Google Antigravity. One OAuth-secured endpoint exposes 16 models (Veo 3, Kling 2.6, SeeDance 2 and 1.5 Pro, Grok Imagine, Nano Banana Pro and 2, GPT Image, z-image) with the coin cost of each returned before generating, cheapest first. Video from $0.15, images from $0.02.
 homepage: https://doravideo.com
-documentation: https://github.com/Saga-Labs/dora-mcp
+documentation: https://doravideo.com/ai-video-mcp
 deployment:
   remote:
     url: https://doravideo.com/mcp
@@ -13,6 +13,11 @@ deployment:
       pkce: true
       dynamicClientRegistration: true
 tags:
+  - video-generation-mcp
+  - ai-video
+  - chatgpt
+  - claude
+  - cursor
   - image-generation
   - video-generation
   - ai

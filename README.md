@@ -1,86 +1,149 @@
-# Dora MCP
+# Dora Video MCP — AI Video Generation MCP Server
 
-Multi-model AI image and video generator, exposed as a hosted MCP connector for Claude.
+**Dora Video** is a hosted **AI video and image generation MCP server** for
+ChatGPT, Claude, Cursor, Google Antigravity and any other Model Context Protocol
+client. One OAuth-secured connection gives an agent 16 models — Google Veo 3,
+Kling 2.6, SeeDance 2, SeeDance 1.5 Pro, Grok Imagine, Nano Banana Pro and
+others — with the coin cost of each returned **before** anything is generated,
+sorted cheapest first.
 
-A single OAuth-secured endpoint gives Claude access to **14 image and video models** through one tool surface. Cheap-first defaults, async job polling, and full-size results stored on Firebase.
+```
+https://doravideo.com/mcp
+```
 
-- **Endpoint:** `https://doravideo.com/mcp`
-- **Landing page:** [doravideo.com/claude](https://doravideo.com/claude)
-- **iOS app:** [Dora on the App Store](https://apps.apple.com/app/id6747720520)
-- **Web:** [doravideo.com](https://doravideo.com)
-- **Smithery:** [smithery.ai/server/saga-labs/dora-mcp](https://smithery.ai/server/saga-labs/dora-mcp)
+Built and operated by [Saga Labs](https://aisagalab.com). Full public
+specification, limitations included: **<https://doravideo.com/ai-video-mcp>**
 
-## Models
+---
 
-| Kind  | Model              | Coin cost | Notes                                       |
-|-------|--------------------|-----------|---------------------------------------------|
-| Image | `z_image`          | 10        | Cheapest text-to-image                      |
-| Image | `google_nano_banana` | 40      | Low-cost text-to-image                      |
-| Image | `google_nano_banana_edit` | 40 | Low-cost editing from a reference photo     |
-| Image | `gpt4o_image`      | 60        | OpenAI GPT-4o image                         |
-| Image | `gpt_image_2`      | 60        | OpenAI gpt-image-2                          |
-| Image | `nano_banana_2`    | 100–150   | **Default** — quality + reference photo     |
-| Image | `nano_banana_pro`  | 180–240   | Best face preservation                      |
-| Video | `grok_text_to_video` | 100–400 | Cheap text-to-video                         |
-| Video | `grok_image_to_video` | 100–400 | Cheap image-to-video                       |
-| Video | `seedance_1_5_pro` | 140–1800  | **Default** — solid quality, optional audio |
-| Video | `kling_2_6`        | 550–2200  | Image-to-video with audio                   |
-| Video | `veo_3`            | 600       | Premium text-to-video (8 s)                 |
-| Video | `seedance_2_fast`  | 620–3960  | SeeDance 2 fast                             |
-| Video | `seedance_2`       | 760–12240 | SeeDance 2 — highest quality                |
+## Why this exists
+
+Most video MCP servers are either a single provider, or raw infrastructure that
+hands your agent a job id and leaves it to build polling, retries and billing.
+Dora sits in between: a curated catalogue behind one account and one balance,
+four tools an agent can reason about in a single pass, and a finished MP4 or
+image at the end.
+
+The design bet is that **an agent picks better from a short list**. A tool per
+model, or per provider, makes the tool list longer than the task.
 
 ## Tools
 
-| Tool             | Purpose                                                                 |
-|------------------|-------------------------------------------------------------------------|
-| `list_models`    | Returns all models cheap-first with per-call cost                       |
-| `generate_image` | Starts an image job; accepts `prompt`, `model`, `resolution`, `aspect_ratio`, `reference_image_url` |
-| `generate_video` | Starts a video job; accepts `prompt`, `model`, `duration`, `resolution`, `aspect_ratio`, `with_audio`, `image_url` |
-| `check_job`      | Polls a job; returns inline image content for small assets, plus a Firebase Storage URL |
+| Tool | What it does |
+|---|---|
+| `list_models` | Every model with its live coin cost, max duration, and whether it accepts an image or a video input. **Sorted cheapest first.** |
+| `generate_video` | Text-to-video, image-to-video, or motion transfer from a driving clip. Returns a job id. |
+| `generate_image` | Text-to-image and image editing from reference photos. Returns a job id. |
+| `check_job` | Polls a job and returns the finished file. |
 
-Async model: `generate_*` returns a `job_id` immediately. Call `check_job` until `status` is `done`. Image results are returned inline (base64) when the asset fits the API limit (~3.5 MB raw); larger images and all videos return a full-size URL.
+Because `list_models` publishes prices, this works:
 
-## Authentication
+> "Animate this product photo as a vertical ad. Use the cheapest model that can
+> do it, tell me what it will cost, and wait for me to confirm."
 
-OAuth 2.1 with:
+## Models
 
-- PKCE (RFC 7636)
-- Dynamic Client Registration (RFC 7591)
-- Refresh tokens
+**Video (9):** `grok_1_5`, `seedance_1_5_pro`, `grok_image_to_video`,
+`grok_text_to_video`, `kling_2_6`, `kling_2_6_motion`, `veo_3`,
+`seedance_2_fast`, `seedance_2`
 
-No pre-shared API keys. Standard OAuth flow handled by the MCP client.
+**Image (7):** `z_image`, `google_nano_banana`, `google_nano_banana_edit`,
+`gpt4o_image`, `gpt_image_2`, `nano_banana_2`, `nano_banana_pro`
 
-## Adding the connector
+### Costs
 
-### Claude Code
+1 Dora coin = 1 provider credit, no multiplier. Dollar figures are the coin
+value on the Pro plan ($15 for 1,000 coins). Verified 5 September 2026.
 
+| Model | Configuration | Coins | On Pro |
+|---|---|---:|---:|
+| `z_image` | 1 image | 1 | $0.02 |
+| `google_nano_banana` | 1 image | 4 | $0.06 |
+| `nano_banana_2` | 1K–2K image | 8 | $0.12 |
+| `grok_1_5` | 4s · 480p video, native audio | 10 | $0.15 |
+| `seedance_1_5_pro` | 4s · 480p video | 14 | $0.21 |
+| `nano_banana_pro` | 1K–2K image | 18 | $0.27 |
+| `kling_2_6` | 5s video, no audio | 55 | $0.83 |
+| `veo_3` | 8s video (Veo 3 Fast) | 60 | $0.90 |
+| `seedance_2` | 4s · 480p video | 76 | $1.14 |
+
+Longer durations, higher resolutions and audio scale up. `list_models` is
+always authoritative; this table is a snapshot.
+
+## Connect it
+
+### Remote (ChatGPT, Claude, Cursor, Antigravity)
+
+Add `https://doravideo.com/mcp` as a remote MCP server and approve the OAuth
+prompt. OAuth 2.1 with dynamic client registration; no API key to manage.
+Step-by-step guides:
+
+- [ChatGPT](https://doravideo.com/chatgpt)
+- [Claude](https://doravideo.com/claude)
+- [Cursor](https://doravideo.com/cursor)
+- [Google Antigravity](https://doravideo.com/antigravity)
+- [Every other MCP client](https://doravideo.com/connectors)
+
+### Stdio bridge
+
+For clients that only speak stdio, `bin/dora-mcp.js` in this repo bridges to the
+same endpoint with an API key from
+[doravideo.com/account](https://doravideo.com/account):
+
+```json
+{
+  "mcpServers": {
+    "dora": {
+      "command": "node",
+      "args": ["/path/to/dora-mcp/bin/dora-mcp.js"],
+      "env": { "DORA_API_KEY": "dora_sk_..." }
+    }
+  }
+}
 ```
-claude mcp add dora https://doravideo.com/mcp
-```
 
-You'll be prompted to authorize via browser the first time.
+## What Dora does not do
 
-### claude.ai (custom connector)
+Stated here so nobody discovers it later:
 
-Settings → Connectors → Add custom connector → URL `https://doravideo.com/mcp` → authorize when prompted.
+- **No public REST API today.** Access is the web app, the iOS app, or MCP.
+- **No deterministic price router.** `list_models` returns costs cheapest first
+  and the agent chooses; Dora does not choose for it.
+- **`list_models` returns the default configuration cost**, not a quote for
+  every parameter combination.
+- **No publishing or scheduling.** Dora returns files; you post them.
+- Free web accounts get 60 starter credits. Beyond that requires a paid plan or
+  a credit pack.
+
+If you are building your own high-volume video backend, model infrastructure
+platforms are a better fit. Dora is a better fit when the goal is a finished
+clip with minimal integration.
 
 ## Pricing
 
-Generations are paid in coins. Free tier gets a small starter balance; subscriptions add monthly coin packs. See [doravideo.com/pricing](https://doravideo.com/pricing).
+| Plan | Monthly | Credits |
+|---|---|---|
+| Pro | $15 | 1,000 |
+| Plus | $49 | 4,000 |
+| Max | $99 | 10,000 |
 
-## Safety
+60 free credits on web signup, no card. Every plan includes every model, every
+resolution, commercial rights and no watermark.
 
-Prompts are filtered for CSAM patterns at the API gateway before any model call. Generated assets are stored on Firebase Storage in the user's account scope.
+## Also available without an agent
 
-## Status
+The same account and balance work on the web at
+[doravideo.com](https://doravideo.com) and on the
+[iPhone app](https://apps.apple.com/app/id6754180384). Android is in review.
 
-Live in production since May 2026. Same backend serves the Dora iOS app (paid product on the App Store) and the [doravideo.com](https://doravideo.com) web app.
+## Links
 
-## Contact
+- Specification: <https://doravideo.com/ai-video-mcp>
+- Model catalogue: <https://doravideo.com/models>
+- Studio: <https://aisagalab.com>
+- Support: <https://doravideo.com/support> · sagalabs@proton.me
 
-- Email: sagalabs@proton.me
-- Issues: open an issue on this repo
+---
 
-## License
-
-MIT — see [LICENSE](LICENSE).
+The MCP server itself is hosted and closed-source. This repository is the public
+documentation and the stdio bridge.
