@@ -112,8 +112,7 @@ Stated here so nobody discovers it later:
 - **`list_models` returns the default configuration cost**, not a quote for
   every parameter combination.
 - **No publishing or scheduling.** Dora returns files; you post them.
-- Free web accounts get 60 starter credits. Beyond that requires a paid plan or
-  a credit pack.
+- Generating requires a paid plan or a credit pack. There is no free tier.
 
 If you are building your own high-volume video backend, model infrastructure
 platforms are a better fit. Dora is a better fit when the goal is a finished
@@ -121,14 +120,13 @@ clip with minimal integration.
 
 ## Pricing
 
-| Plan | Monthly | Credits |
+| Plan | Price | Credits |
 |---|---|---|
-| Pro | $15 | 1,000 |
-| Plus | $49 | 4,000 |
-| Max | $99 | 10,000 |
+| Pro (web) | $15 / month | 1,000 / month |
+| Credit packs | from $7 | 600+, never expire |
 
-60 free credits on web signup, no card. Every plan includes every model, every
-resolution, commercial rights and no watermark.
+Every plan includes every model, every resolution, commercial rights and no
+watermark.
 
 ## Also available without an agent
 
