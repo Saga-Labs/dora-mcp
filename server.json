@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Saga-Labs/dora-mcp",
+  "title": "Dora AI Video",
+  "description": "AI video and image generation for any MCP client: Veo, Kling, Seedance, Grok via one OAuth login.",
+  "websiteUrl": "https://doravideo.com",
+  "repository": {
+    "url": "https://github.com/Saga-Labs/dora-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://doravideo.com/mcp"
+    }
+  ]
+}
