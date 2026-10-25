@@ -1,5 +1,7 @@
 # Dora Video MCP — AI Video Generation MCP Server
 
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/saga-labs/dora-mcp)
+
 **Dora Video** is a hosted **AI video and image generation MCP server** for
 ChatGPT, Claude, Cursor, Google Antigravity and any other Model Context Protocol
 client. One OAuth-secured connection gives an agent 16 models — Google Veo 3,
