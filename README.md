@@ -2,6 +2,7 @@
 
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/saga-labs/dora-mcp)
 [![Dora Video MCP server on Glama](https://glama.ai/mcp/servers/Saga-Labs/dora-mcp/badge)](https://glama.ai/mcp/servers/Saga-Labs/dora-mcp)
+[![Available in ChatGPT Plugins](https://img.shields.io/badge/ChatGPT-Dora%20AI%20Video%20plugin-10a37f)](https://chatgpt.com/plugins/plugin_asdk_app_6ac7e595853c8191baefac6a3a2b9c24)
 
 **Dora Video** is a hosted **AI video and image generation MCP server** for
 ChatGPT, Claude, Cursor, Google Antigravity and any other Model Context Protocol
