@@ -7,7 +7,7 @@
 **Dora Video** is a hosted **AI video and image generation MCP server** for
 ChatGPT, Claude, Cursor, Google Antigravity and any other Model Context Protocol
 client. One OAuth-secured connection gives an agent 16 models — Google Veo 3,
-Kling 2.6, SeeDance 2, SeeDance 1.5 Pro, Grok Imagine, Nano Banana Pro and
+Kling 2.6, SeeDance 2, Seedance 2 Mini, Grok Imagine, Nano Banana Pro and
 others — with the coin cost of each returned **before** anything is generated,
 sorted cheapest first.
 
@@ -47,9 +47,12 @@ Because `list_models` publishes prices, this works:
 
 ## Models
 
-**Video (9):** `grok_1_5`, `seedance_1_5_pro`, `grok_image_to_video`,
+**Video (9):** `grok_1_5`, `seedance_2_mini`, `grok_image_to_video`,
 `grok_text_to_video`, `kling_2_6`, `kling_2_6_motion`, `veo_3`,
 `seedance_2_fast`, `seedance_2`
+
+`seedance_2_mini` was called `seedance_1_5_pro` until its provider retired
+Seedance 1.5 Pro on 25 October 2026; the old name still works.
 
 **Image (7):** `z_image`, `google_nano_banana`, `google_nano_banana_edit`,
 `gpt4o_image`, `gpt_image_2`, `nano_banana_2`, `nano_banana_pro`
@@ -57,19 +60,20 @@ Because `list_models` publishes prices, this works:
 ### Costs
 
 1 Dora coin = 1 provider credit, no multiplier. Dollar figures are the coin
-value on the Pro plan ($15 for 1,000 coins). Verified 5 September 2026.
+value on the weekly Pro plan ($4.99 for 500 coins, about $0.01 a coin).
+Verified 30 October 2026.
 
 | Model | Configuration | Coins | On Pro |
 |---|---|---:|---:|
-| `z_image` | 1 image | 1 | $0.02 |
-| `google_nano_banana` | 1 image | 4 | $0.06 |
-| `nano_banana_2` | 1K–2K image | 8 | $0.12 |
-| `grok_1_5` | 4s · 480p video, native audio | 10 | $0.15 |
-| `seedance_1_5_pro` | 4s · 480p video | 14 | $0.21 |
-| `nano_banana_pro` | 1K–2K image | 18 | $0.27 |
-| `kling_2_6` | 5s video, no audio | 55 | $0.83 |
-| `veo_3` | 8s video (Veo 3 Fast) | 60 | $0.90 |
-| `seedance_2` | 4s · 480p video | 76 | $1.14 |
+| `z_image` | 1 image | 1 | $0.01 |
+| `google_nano_banana` | 1 image | 4 | $0.04 |
+| `nano_banana_2` | 1K–2K image | 8 | $0.08 |
+| `grok_1_5` | 4s · 480p video, native audio | 10 | $0.10 |
+| `seedance_2_mini` | 4s · 480p video | 16 | $0.16 |
+| `nano_banana_pro` | 1K–2K image | 18 | $0.18 |
+| `kling_2_6` | 5s video, no audio | 55 | $0.55 |
+| `veo_3` | 8s video (Veo 3 Fast) | 60 | $0.60 |
+| `seedance_2` | 4s · 480p video | 76 | $0.76 |
 
 Longer durations, higher resolutions and audio scale up. `list_models` is
 always authoritative; this table is a snapshot.
@@ -126,8 +130,9 @@ clip with minimal integration.
 
 | Plan | Price | Credits |
 |---|---|---|
-| Pro (web) | $15 / month | 1,000 / month |
-| Credit packs | from $7 | 600+, never expire |
+| Pro weekly (web) | $4.99 / week (first week $1.99) | 500 / week |
+| Pro annual (web) | $119.99 / year | 300 / week |
+| Credit packs | from $2.99 | 300+, never expire |
 
 Every plan includes every model, every resolution, commercial rights and no
 watermark.
