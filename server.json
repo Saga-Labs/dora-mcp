@@ -2,13 +2,13 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.Saga-Labs/dora-mcp",
   "title": "Dora AI Video",
-  "description": "AI video and image generation for any MCP client: Seedance, Kling, Grok via one OAuth login.",
+  "description": "AI video and images from a photo or text in ChatGPT and Claude. Seedance 2 Mini by default.",
   "websiteUrl": "https://doravideo.com",
   "repository": {
     "url": "https://github.com/Saga-Labs/dora-mcp",
     "source": "github"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "remotes": [
     {
       "type": "streamable-http",
