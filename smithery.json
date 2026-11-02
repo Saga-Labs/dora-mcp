@@ -1,7 +1,7 @@
 {
   "$schema": "https://smithery.ai/docs/config/schema.json",
   "name": "dora-mcp",
-  "description": "Universal AI video and image generation MCP server for Claude, ChatGPT, Google Antigravity, and Cursor. Access Veo 3, SeeDance 2, Kling 2.6, Grok, and Nano Banana.",
+  "description": "Universal AI video and image generation MCP server for Claude, ChatGPT, Google Antigravity, and Cursor. Access Seedance 2 Mini, Seedance 2, Kling 2.6, Grok, and Nano Banana.",
   "startCommand": {
     "type": "stdio",
     "config": {

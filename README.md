@@ -6,10 +6,10 @@
 
 **Dora Video** is a hosted **AI video and image generation MCP server** for
 ChatGPT, Claude, Cursor, Google Antigravity and any other Model Context Protocol
-client. One OAuth-secured connection gives an agent 16 models — Google Veo 3,
-Kling 2.6, SeeDance 2, Seedance 2 Mini, Grok Imagine, Nano Banana Pro and
-others — with the coin cost of each returned **before** anything is generated,
-sorted cheapest first.
+client. One OAuth-secured connection gives an agent 12 models (Seedance 2 Mini
+by default, Seedance 2, Kling 2.6 Motion Control, Grok Imagine, Nano Banana 2,
+Nano Banana Pro and others) with the coin cost of each returned **before**
+anything is generated, sorted cheapest first.
 
 ```
 https://doravideo.com/mcp
@@ -47,32 +47,33 @@ Because `list_models` publishes prices, this works:
 
 ## Models
 
-**Video (9):** `grok_1_5`, `seedance_2_mini`, `grok_image_to_video`,
-`grok_text_to_video`, `kling_2_6`, `kling_2_6_motion`, `veo_3`,
-`seedance_2_fast`, `seedance_2`
+**Video (6):** `seedance_2_mini` (default), `grok_text_to_video`,
+`grok_image_to_video`, `grok_1_5`, `kling_2_6_motion`, `seedance_2`
 
 `seedance_2_mini` was called `seedance_1_5_pro` until its provider retired
 Seedance 1.5 Pro on 25 October 2026; the old name still works.
 
-**Image (7):** `z_image`, `google_nano_banana`, `google_nano_banana_edit`,
-`gpt4o_image`, `gpt_image_2`, `nano_banana_2`, `nano_banana_pro`
+**Image (6):** `nano_banana_2` (default), `z_image`, `google_nano_banana`,
+`google_nano_banana_edit`, `gpt_image_2`, `nano_banana_pro`
+
+Veo was removed on 2 November 2026.
 
 ### Costs
 
 1 Dora coin = 1 provider credit, no multiplier. Dollar figures are the coin
 value on the weekly Pro plan ($4.99 for 500 coins, about $0.01 a coin).
-Verified 30 October 2026.
+Verified with `list_models` on 2 November 2026.
 
 | Model | Configuration | Coins | On Pro |
 |---|---|---:|---:|
 | `z_image` | 1 image | 1 | $0.01 |
 | `google_nano_banana` | 1 image | 4 | $0.04 |
-| `nano_banana_2` | 1K–2K image | 8 | $0.08 |
+| `nano_banana_2` | 1K image | 8 | $0.08 |
 | `grok_1_5` | 4s · 480p video, native audio | 10 | $0.10 |
-| `seedance_2_mini` | 4s · 480p video | 16 | $0.16 |
+| `seedance_2_mini` | 4s · 480p video, audio | 16 | $0.16 |
+| `seedance_2_mini` | 8s · 480p video, audio (default) | 31 | $0.31 |
 | `nano_banana_pro` | 1K–2K image | 18 | $0.18 |
-| `kling_2_6` | 5s video, no audio | 55 | $0.55 |
-| `veo_3` | 8s video (Veo 3 Fast) | 60 | $0.60 |
+| `kling_2_6_motion` | 5s driving clip, 11 coins a second | 55 | $0.55 |
 | `seedance_2` | 4s · 480p video | 76 | $0.76 |
 
 Longer durations, higher resolutions and audio scale up. `list_models` is
