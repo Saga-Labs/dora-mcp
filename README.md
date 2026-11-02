@@ -68,7 +68,7 @@ Verified with `list_models` on 2 November 2026.
 |---|---|---:|---:|
 | `z_image` | 1 image | 1 | $0.01 |
 | `google_nano_banana` | 1 image | 4 | $0.04 |
-| `nano_banana_2` | 1K image | 8 | $0.08 |
+| `nano_banana_2` | 1K image | 10 | $0.10 |
 | `grok_1_5` | 4s · 480p video, native audio | 10 | $0.10 |
 | `seedance_2_mini` | 4s · 480p video, audio | 16 | $0.16 |
 | `seedance_2_mini` | 8s · 480p video, audio (default) | 31 | $0.31 |
