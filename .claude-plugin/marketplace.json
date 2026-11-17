@@ -1,0 +1,25 @@
+{
+  "name": "saga-labs",
+  "owner": {
+    "name": "Saga Labs",
+    "email": "sagalabs@proton.me",
+    "url": "https://doravideo.com"
+  },
+  "metadata": {
+    "description": "Plugins by Saga Labs. Dora turns a description or a photo into a short AI video or image."
+  },
+  "plugins": [
+    {
+      "name": "dora",
+      "source": "./plugins/dora",
+      "description": "Make short AI videos and images with Dora: one-shot clips, storyboards with a consistent character, reels from a script and product ads.",
+      "version": "1.0.0",
+      "author": { "name": "Saga Labs", "email": "sagalabs@proton.me" },
+      "homepage": "https://doravideo.com/claude",
+      "repository": "https://github.com/Saga-Labs/dora-mcp",
+      "license": "MIT",
+      "keywords": ["ai video", "video generator", "image generator", "text to video", "image to video", "storyboard", "reel", "product video", "mcp"],
+      "category": "media"
+    }
+  ]
+}
