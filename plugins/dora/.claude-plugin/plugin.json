@@ -1,0 +1,26 @@
+{
+  "name": "dora",
+  "version": "1.0.0",
+  "description": "Make short AI videos and images with Dora: one-shot clips, storyboards with a consistent character, reels from a script and product ads.",
+  "author": {
+    "name": "Saga Labs",
+    "email": "sagalabs@proton.me",
+    "url": "https://doravideo.com"
+  },
+  "homepage": "https://doravideo.com/claude",
+  "repository": "https://github.com/Saga-Labs/dora-mcp",
+  "license": "MIT",
+  "keywords": [
+    "ai video",
+    "video generator",
+    "image generator",
+    "text to video",
+    "image to video",
+    "storyboard",
+    "reel",
+    "product video",
+    "mcp"
+  ],
+  "icon": ".claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://doravideo.com/privacy"
+}

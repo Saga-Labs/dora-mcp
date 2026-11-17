@@ -81,6 +81,32 @@ always authoritative; this table is a snapshot.
 
 ## Connect it
 
+### Claude plugin (Claude Code, Cowork and the Claude app)
+
+This repository is also a Claude plugin marketplace. The `dora` plugin bundles
+the connector and four skills: **get-started** (one video or image),
+**storyboard** (several shots with the same character), **script-to-reel**
+(3 to 5 vertical clips from a script, joined into one mp4 with ffmpeg where a
+shell is available) and **product-ad** (spin, in-use and scene clips from one
+product photo, vertical and square).
+
+In Claude Code:
+
+```
+/plugin install dora --marketplace Saga-Labs/dora-mcp
+```
+
+or, on older versions:
+
+```
+/plugin marketplace add Saga-Labs/dora-mcp
+/plugin install dora@saga-labs
+```
+
+In Cowork and the Claude app, add the marketplace `Saga-Labs/dora-mcp` from the
+plugin settings and install **dora**. The first generation asks you to sign in
+to Dora. Privacy policy: <https://doravideo.com/privacy>.
+
 ### Remote (ChatGPT, Claude, Cursor, Antigravity)
 
 Add `https://doravideo.com/mcp` as a remote MCP server and approve the OAuth
