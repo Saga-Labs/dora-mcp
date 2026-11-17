@@ -12,7 +12,9 @@ Dora turns a description, or a photo, into a short video or an image. The tools 
 - If the user has not said what to make, ask only: "What do you want to create?" Offer no list of options.
 - If it is not clear whether they want a video or an image, ask only that. If it is clear, do not ask.
 - Then generate straight away with the tool defaults: for video, vertical 9:16, 8 seconds, 480p, sound on; images at 1K, square. Change a setting only when the user asks.
-- Photos reach Dora only as a public https link (`image_url` for video, `reference_image_url` for images). Never invent a link. If the user attached a photo in the chat, say that Dora needs a link to it, and offer to make it from a description instead.
+- Photos reach Dora as an https link (`image_url` for video, `reference_image_url` for images). Never invent a link.
+  - **With a shell (Claude Code, Cowork):** for a local photo, call `get_upload_link` (one per photo, with its `content_type`), run the `curl` it returns with the file path, and pass the returned `photo_url`. The link works once and expires after 15 minutes; it costs no coins.
+  - **Without a shell (the Claude chat):** a photo attached in the chat cannot reach Dora. Ask for a public https link to it, or offer to make it from a description instead.
 
 ## Generating
 

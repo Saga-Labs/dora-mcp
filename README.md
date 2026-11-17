@@ -39,6 +39,8 @@ model, or per provider, makes the tool list longer than the task.
 | `generate_video` | Text-to-video, image-to-video, or motion transfer from a driving clip. Returns a job id. |
 | `generate_image` | Text-to-image and image editing from reference photos. Returns a job id. |
 | `check_job` | Polls a job and returns the finished file. |
+| `get_balance` | Reads the account's coin balance and plan. Read-only. |
+| `get_upload_link` | One-use link to upload a local photo (jpeg, png, heic, webp, 10 MB) from a client with a shell. Not offered in ChatGPT, which sends attachments directly. |
 
 Because `list_models` publishes prices, this works:
 
@@ -105,7 +107,9 @@ or, on older versions:
 
 In Cowork and the Claude app, add the marketplace `Saga-Labs/dora-mcp` from the
 plugin settings and install **dora**. The first generation asks you to sign in
-to Dora. Privacy policy: <https://doravideo.com/privacy>.
+to Dora. In Claude Code and Cowork the plugin can also upload a local photo
+(`get_upload_link`: one use, 15 minutes, images up to 10 MB). Privacy policy:
+<https://doravideo.com/privacy>.
 
 ### Remote (ChatGPT, Claude, Cursor, Antigravity)
 
