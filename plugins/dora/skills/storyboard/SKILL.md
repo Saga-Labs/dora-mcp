@@ -9,7 +9,7 @@ The way to keep a character the same across shots is to give Dora the same refer
 
 ## 1. The character
 
-- If the user has a public https link to a photo of the character, use it.
+- If the user has a photo of the character, use it: a public https link as it is, or a local file through `get_upload_link` (see `get-started`).
 - Otherwise make a character sheet with `generate_image` (default model `nano_banana_2`, 1K): one image, plain light background, the character full body and face clearly visible, front view, in the outfit they will wear in every shot. Describe age, hair, clothes and colours in concrete words.
 - Show the sheet to the user and ask if it is right before any video. Images cost much less than videos, so fix the look here.
 - From then on, the reference is the sheet's link with `?raw=1` at the end (`https://doravideo.com/v/<id>?raw=1`).

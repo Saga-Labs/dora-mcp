@@ -7,7 +7,7 @@ description: Make short product ad videos with Dora from a photo of the product 
 
 ## 1. The photo
 
-- Dora needs the product photo as a public https link: a shop listing image, a CDN link or a Dora result with `?raw=1`. Never invent one.
+- Dora needs the product photo as an https link: a shop listing image, a CDN link, a Dora result with `?raw=1`, or, for a local file in Claude Code or Cowork, the `photo_url` from `get_upload_link` (see `get-started`). Never invent one.
 - If the user has no link, offer to make a clean product image first with `generate_image` from their description, show it, and use it once they approve.
 - A plain background and the whole product in frame give the best results.
 
