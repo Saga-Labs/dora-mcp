@@ -13,7 +13,7 @@
       "name": "dora",
       "source": "./plugins/dora",
       "description": "Make short AI videos and images with Dora: one-shot clips, storyboards with a consistent character, reels from a script and product ads.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": { "name": "Saga Labs", "email": "sagalabs@proton.me" },
       "homepage": "https://doravideo.com/claude",
       "repository": "https://github.com/Saga-Labs/dora-mcp",

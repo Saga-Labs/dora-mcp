@@ -86,7 +86,8 @@ always authoritative; this table is a snapshot.
 ### Claude plugin (Claude Code, Cowork and the Claude app)
 
 This repository is also a Claude plugin marketplace. The `dora` plugin bundles
-the connector and four skills: **get-started** (one video or image),
+the connector and five skills: **welcome** (a short tour, three questions about
+the person's social media and three ideas), **get-started** (one video or image),
 **storyboard** (several shots with the same character), **script-to-reel**
 (3 to 5 vertical clips from a script, joined into one mp4 with ffmpeg where a
 shell is available) and **product-ad** (spin, in-use and scene clips from one
